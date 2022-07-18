@@ -18,6 +18,8 @@ jobs:
           git clone https://github.com/gadgetoid/rpi-ramdisk -b keybow
           cd rpi-ramdisk
           git checkout keybow
+          git submodule set-url kernel/linux https://github.com/raspberrypi/linux.git
+          git submodule set-url firmware/usbboot https://github.com/raspberrypi/usbboot.git
           git submodule update --init --depth=1 kernel/linux
           git submodule update --init --depth=1 firmware/usbboot
           cp configs/keybow.config.py config.py
