@@ -15,7 +15,7 @@ jobs:
       - name: Build sd card
         working-directory: ${{ github.workspace }}
         run: |
-          git clone https://github.com/gadgetoid/rpi-ramdisk -b keybow
+          git clone https://github.com/ddrboxman/rpi-ramdisk -b keybow
           cd rpi-ramdisk
           git checkout keybow
           git submodule set-url kernel/linux https://github.com/raspberrypi/linux.git
