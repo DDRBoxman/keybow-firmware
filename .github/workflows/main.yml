@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v3
       
       - name: Get pydo
-        working-directory: $GITHUB_WORKSPACE
+        working-directory: ${{ github.workspace }}
         run: |
           git clone git://github.com/ali1234/pydo
           cd pydo && pip3 install .
@@ -29,10 +29,11 @@ jobs:
                  gtk-doc-tools valac libssl-dev
 
       - name: Build sd card
-        working-directory: $GITHUB_WORKSPACE
+        working-directory: ${{ github.workspace }}
         run: |
           git clone https://github.com/gadgetoid/rpi-ramdisk -b keybow
           cd rpi-ramdisk
+          git checkout keybow
           git submodule update --init --depth=1 kernel/linux
           git submodule update --init --depth=1 firmware/usbboot
           cp configs/keybow.config.py config.py
